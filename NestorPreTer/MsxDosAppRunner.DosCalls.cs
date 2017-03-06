@@ -12,7 +12,8 @@ namespace Konamiman.NestorPreTer
             DosCalls = new Dictionary<byte, Action>
             {
                 {0x02, CONOUT},
-                {0x09, STROUT}
+                {0x09, STROUT},
+                {0x6F, GETVER}
             };
         }
 
@@ -38,6 +39,12 @@ namespace Konamiman.NestorPreTer
                 Console.Write(Convert.ToChar(theChar));
                 pointer++;
             }
+        }
+
+        private void GETVER()
+        {
+            r.AF = 0;
+            r.BC = 0x0220;
         }
     }
 }

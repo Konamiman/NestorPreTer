@@ -43,10 +43,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MappedMemory.cs" />
     <Compile Include="MsxDosAppRunner.cs" />
     <Compile Include="MsxDosAppRunner.DosCalls.cs">
       <DependentUpon>MsxDosAppRunner.cs</DependentUpon>
     </Compile>
+    <Compile Include="MsxDosAppRunner.Mapper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
