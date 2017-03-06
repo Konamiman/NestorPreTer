@@ -51,8 +51,9 @@ namespace Konamiman.NestorPreTer
         private void ALL_SEG()
         {
             r.CF = 0;
-            r.B = NextSegmentToAllocate;
+            r.A = NextSegmentToAllocate;
             NextSegmentToAllocate++;
+            //slot (r.B) is irrelevant
         }
 
         private void GET_P1()

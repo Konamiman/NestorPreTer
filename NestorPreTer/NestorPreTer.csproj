@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Konamiman.NestorPreTer</RootNamespace>
-    <AssemblyName>NestorPreTer</AssemblyName>
+    <AssemblyName>npr</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -48,7 +48,9 @@
     <Compile Include="MsxDosAppRunner.DosCalls.cs">
       <DependentUpon>MsxDosAppRunner.cs</DependentUpon>
     </Compile>
-    <Compile Include="MsxDosAppRunner.Mapper.cs" />
+    <Compile Include="MsxDosAppRunner.Mapper.cs">
+      <DependentUpon>MsxDosAppRunner.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
