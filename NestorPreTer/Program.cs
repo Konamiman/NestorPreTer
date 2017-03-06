@@ -11,6 +11,8 @@ namespace Konamiman.NestorPreTer
 
         static int Main(string[] args)
         {
+            //This allows embeding the Z80DotNet.dll dependency within the
+            //executable file itself, so the whole program is one single .exe
             AppDomain.CurrentDomain.AssemblyResolve += (sender, a) => {
                 var resourceName = new AssemblyName(a.Name).Name + ".dll";
                 using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(typeof(Program), resourceName))
