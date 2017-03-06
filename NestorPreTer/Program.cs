@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 
 namespace Konamiman.NestorPreTer
 {
@@ -10,9 +11,10 @@ namespace Konamiman.NestorPreTer
         static int Main(string[] args)
         {
             var commandLineArgs = string.Join(" ", args);
-            if (commandLineArgs.Length > 127)
+            var commandLineLengthInBytes = Encoding.ASCII.GetBytes(commandLineArgs).Length;
+            if (commandLineLengthInBytes > 127)
             {
-                Console.WriteLine($"*** Command line must be at most 127 characters (was {commandLineArgs.Length})");
+                Console.WriteLine($"*** Command line must be at most 127 characters (was {commandLineLengthInBytes})");
                 return 1;
             }
 
