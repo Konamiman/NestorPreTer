@@ -37,9 +37,8 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Z80dotNet, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Z80dotNet.1.0.5.0\lib\net40-Client\Z80dotNet.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Z80dotNet">
+      <HintPath>.\Z80dotNet.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -60,10 +59,10 @@
     <EmbeddedResource Include="npr.com.z80">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Info\npr.txt" />
+    <EmbeddedResource Include="Z80dotNet.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -11,6 +11,16 @@ namespace Konamiman.NestorPreTer
 
         static int Main(string[] args)
         {
+            AppDomain.CurrentDomain.AssemblyResolve += (sender, a) => {
+                var resourceName = new AssemblyName(a.Name).Name + ".dll";
+                using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(typeof(Program), resourceName))
+                {
+                    var assemblyData = new byte[stream.Length];
+                    stream.Read(assemblyData, 0, assemblyData.Length);
+                    return Assembly.Load(assemblyData);
+                }
+            };
+
             var commandLineArgs = string.Join(" ", args);
             var commandLineLengthInBytes = Encoding.ASCII.GetBytes(commandLineArgs).Length;
             if (commandLineLengthInBytes > 127)
