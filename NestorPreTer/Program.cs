@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 using System.Text;
 
 namespace Konamiman.NestorPreTer
@@ -21,7 +22,12 @@ namespace Konamiman.NestorPreTer
             byte[] application;
             try
             {
-                application = File.ReadAllBytes(ApplicationFile);
+                var appStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(typeof(Program), ApplicationFile);
+                var memStream = new MemoryStream();
+                appStream.CopyTo(memStream);
+                application = memStream.ToArray();
+                memStream.Dispose();
+                appStream.Dispose();
             }
             catch (Exception ex)
             {
